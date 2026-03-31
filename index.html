@@ -3,245 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Арбитражный управляющий | Ставрополь</title>
+    <title>BL0Xa | Official Media</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Press+Start+2P&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --bg: #0f1113;
-            --card-bg: rgba(255, 255, 255, 0.05);
-            --accent: #d4af37; /* Noble Gold */
-            --text-white: #ffffff;
-            --text-gray: #a0a0a0;
-            --glass-border: rgba(255, 255, 255, 0.1);
+            --mc-green: #55ff55;
+            --mc-dark: #1e1e1e;
+            --accent: #00aaff;
+            --glass: rgba(0, 0, 0, 0.6);
         }
 
-        * { box-sizing: border-box; scroll-behavior: smooth; }
+        * { box-sizing: border-box; cursor: crosshair; }
 
         body {
             margin: 0;
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg);
-            color: var(--text-white);
+            padding: 0;
+            background: #0a0a0a;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
             overflow-x: hidden;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
+            background: 
+                linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                url('https://wallpaperaccess.com/full/1252033.jpg') no-repeat center center fixed;
+            background-size: cover;
         }
 
-        /* Hero Section */
-        .hero {
+        /* МАЙНКРАФТ СОЛНЦЕ */
+        .mc-sun {
+            position: fixed;
+            top: 40px;
+            right: 40px;
+            width: 80px;
+            height: 80px;
+            background: url('https://p7.hiclipart.com/preview/417/1000/150/minecraft-video-game-pixel-art-grass-minecraft.jpg') no-repeat center;
+            background-size: cover;
+            border: 4px solid #333;
+            box-shadow: 0 0 30px var(--mc-green);
+            border-radius: 10px;
+            z-index: 1000;
+            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: rotateSun 10s linear infinite;
+        }
+        .mc-sun:hover {
+            transform: scale(1.4) rotate(15deg);
+            box-shadow: 0 0 50px var(--mc-green);
+        }
+        @keyframes rotateSun { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+        /* ОСНОВНОЙ КОНТЕЙНЕР */
+        .wrapper {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            padding: 80px 20px;
-            text-align: center;
-            border-bottom: 1px solid var(--glass-border);
+            justify-content: center;
+            padding: 40px 20px;
         }
 
-        .badge {
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--accent);
-            padding: 10px 25px;
-            border-radius: 50px;
-            font-size: 12px;
-            letter-spacing: 3px;
+        .profile-card {
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 30px;
+            padding: 50px;
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            animation: slideUp 1s ease;
+        }
+
+        @keyframes slideUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+
+        .nickname {
+            font-family: 'Press Start 2P', cursive;
+            font-size: clamp(24px, 6vw, 40px);
+            color: var(--mc-green);
+            text-shadow: 4px 4px #000;
+            margin-bottom: 10px;
+        }
+
+        .status {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
             color: var(--accent);
             margin-bottom: 30px;
-            text-transform: uppercase;
         }
 
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(36px, 10vw, 72px);
-            line-height: 1.1;
-            margin: 0;
-            background: linear-gradient(180deg, #fff 0%, #aaa 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .about {
+            line-height: 1.8;
+            font-size: 18px;
+            color: #ddd;
+            margin-bottom: 40px;
+            text-align: left;
+            border-left: 4px solid var(--mc-green);
+            padding-left: 20px;
         }
 
-        .subtitle {
-            font-size: clamp(16px, 4vw, 20px);
-            color: var(--text-gray);
-            max-width: 800px;
-            margin: 30px 0 50px;
-        }
-
-        /* Stats Block */
-        .stats {
+        .skills {
             display: flex;
-            gap: 40px;
-            margin-bottom: 50px;
             flex-wrap: wrap;
+            gap: 10px;
             justify-content: center;
+            margin-bottom: 40px;
         }
 
-        .stat-item { text-align: center; }
-        .stat-num { display: block; font-size: 32px; font-weight: 800; color: var(--accent); }
-        .stat-desc { font-size: 12px; text-transform: uppercase; color: var(--text-gray); letter-spacing: 1px; }
-
-        /* Buttons */
-        .cta-group { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
-
-        .btn-main {
-            background: var(--accent);
-            color: #000;
-            padding: 20px 45px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.3s;
+        .skill-tag {
+            background: rgba(255,255,255,0.1);
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: bold;
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
-        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3); }
+        /* СОЦСЕТИ */
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
 
-        .btn-icon {
-            width: 65px;
-            height: 65px;
+        .social-item {
+            aspect-ratio: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: var(--card-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 4px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            font-size: 28px;
             color: #fff;
-            font-size: 22px;
+            text-decoration: none;
             transition: 0.3s;
+            border: 1px solid transparent;
         }
 
-        .btn-icon:hover { border-color: var(--accent); color: var(--accent); }
-
-        /* Steps Section */
-        .section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
-        .section-h2 { 
-            font-family: 'Playfair Display', serif; 
-            font-size: 42px; 
-            text-align: center; 
-            margin-bottom: 60px;
-            color: var(--accent);
+        .social-item:hover {
+            transform: translateY(-10px);
+            border-color: var(--mc-green);
+            background: rgba(85, 255, 85, 0.1);
+            color: var(--mc-green);
         }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+        /* МОБИЛКИ */
+        @media (max-width: 600px) {
+            .mc-sun { width: 50px; height: 50px; top: 20px; right: 20px; }
+            .profile-card { padding: 30px 20px; }
+            .social-grid { grid-template-columns: repeat(3, 1fr); }
         }
 
-        .card {
-            background: var(--card-bg);
-            padding: 50px 40px;
-            border-radius: 4px;
-            border: 1px solid var(--glass-border);
-            position: relative;
-            transition: 0.4s;
+        .footer {
+            margin-top: 50px;
+            font-size: 10px;
+            color: #555;
+            text-transform: uppercase;
         }
-
-        .card:hover { background: rgba(255,255,255,0.08); border-color: var(--accent); }
-
-        .card-num {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            font-size: 60px;
-            font-weight: 900;
-            opacity: 0.05;
-            color: #fff;
-        }
-
-        .card i { font-size: 40px; color: var(--accent); margin-bottom: 25px; display: block; }
-        .card h3 { font-size: 24px; margin-bottom: 15px; font-family: 'Playfair Display', serif; }
-        .card p { color: var(--text-gray); line-height: 1.8; margin: 0; }
-
-        /* Mobile Optimization */
-        @media (max-width: 768px) {
-            h1 { font-size: 40px; }
-            .section-h2 { font-size: 32px; }
-            .btn-main { width: 100%; text-align: center; }
-            .cta-group { width: 100%; }
-        }
-
-        footer {
-            padding: 80px 20px;
-            background: #000;
-            text-align: center;
-            border-top: 1px solid var(--glass-border);
-        }
-
-        .footer-line { height: 1px; background: var(--accent); width: 50px; margin: 30px auto; }
     </style>
 </head>
 <body>
 
-    <section class="hero">
-        <div class="badge">Арбитраж • Ставрополь • Край</div>
-        <h1>Защита Ваших Активов <br>и Полное Списание Долгов</h1>
-        <p class="subtitle">
-            Индивидуальные стратегии банкротства от профессионального арбитражного управляющего. Решаем сложнейшие юридические задачи в правовом поле.
-        </p>
+    <div class="mc-sun"></div>
 
-        <div class="stats">
-            <div class="stat-item">
-                <span class="stat-num">100%</span>
-                <span class="stat-desc">Завершенных дел</span>
+    <div class="wrapper">
+        <div class="profile-card">
+            <div class="status">Media Personality</div>
+            <h1 class="nickname">BL0Xa</h1>
+            
+            <div class="skills">
+                <span class="skill-tag">JAVA PLUGINS</span>
+                <span class="skill-tag">SERVER DEV</span>
+                <span class="skill-tag">CODING</span>
+                <span class="skill-tag">BAKISYYY LEGACY</span>
             </div>
-            <div class="stat-item">
-                <span class="stat-num">26</span>
-                <span class="stat-desc">Регион работы</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-num">8+</span>
-                <span class="stat-desc">Лет практики</span>
-            </div>
-        </div>
 
-        <div class="cta-group">
-            <a href="mailto:contact@mail.ru" class="btn-main">Запросить аудит дела</a>
-            <a href="#" class="btn-icon"><i class="fa-brands fa-telegram"></i></a>
-            <a href="#" class="btn-icon"><i class="fa-brands fa-whatsapp"></i></a>
-        </div>
-    </section>
+            <div class="about">
+                Привет! Я <strong>BL0Xa</strong>. В прошлом известен как <strong>bakisyyy</strong>. 
+                Я добрый чел, глубоко шарю в кодинге, разработке Java-плагинов и профессиональной настройке серверов. 
+                Делаю контент и создаю технические решения для Minecraft комьюнити.
+            </div>
 
-    <div class="section">
-        <h2 class="section-h2">Этапы реализации</h2>
-        <div class="grid">
-            <div class="card">
-                <span class="card-num">01</span>
-                <i class="fa-solid fa-magnifying-glass-chart"></i>
-                <h3>Анализ рисков</h3>
-                <p>Проводим глубокий аудит вашей финансовой ситуации и имущества перед подачей заявления.</p>
+            <div class="social-grid">
+                <a href="https://t.me/otxao" class="social-item" title="Личный ТГ"><i class="fa-brands fa-telegram"></i></a>
+                <a href="https://t.me/BL0Xaoff" class="social-item" title="ТГ Канал"><i class="fa-solid fa-bullhorn"></i></a>
+                <a href="https://steamcommunity.com/profiles/76561199581662267/" class="social-item" title="Steam"><i class="fa-brands fa-steam"></i></a>
+                <a href="https://www.tiktok.com/@bl0xa_off" class="social-item" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://discordapp.com/users/1282064374831255623" class="social-item" title="Discord"><i class="fa-brands fa-discord"></i></a>
             </div>
-            <div class="card">
-                <span class="card-num">02</span>
-                <i class="fa-solid fa-gavel"></i>
-                <h3>Судебный процесс</h3>
-                <p>Представление интересов в Арбитражном суде Ставропольского края на всех стадиях дела.</p>
-            </div>
-            <div class="card">
-                <span class="card-num">03</span>
-                <i class="fa-solid fa-certificate"></i>
-                <h3>Результат</h3>
-                <p>Получение судебного акта о полном освобождении от исполнения требований кредиторов.</p>
+
+            <div class="footer">
+                All rights belong to BL0Xa © 2026
             </div>
         </div>
     </div>
-
-    <footer>
-        <div style="letter-spacing: 2px; color: #fff; font-weight: 600;">ВАШ АРБИТРАЖНЫЙ УПРАВЛЯЮЩИЙ</div>
-        <div class="footer-line"></div>
-        <p style="color: var(--text-gray); max-width: 600px; margin: 0 auto; font-size: 13px; line-height: 1.6;">
-            Специализированная помощь в рамках ФЗ-127 «О несостоятельности». <br>
-            Ставрополь, ул. Дзержинского (офис в центре).
-        </p>
-        <div style="margin-top: 40px; font-size: 11px; color: #444;">© 2026 OFFICIAL SITE. СТАВРОПОЛЬ.</div>
-    </footer>
 
 </body>
 </html>
