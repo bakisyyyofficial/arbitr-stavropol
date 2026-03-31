@@ -3,224 +3,244 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Арбитражный управляющий | Ставрополь | Банкротство</title>
+    <title>Арбитражный управляющий | Ставрополь</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --primary: #1a1c1e;
-            --accent: #c5a059;
-            --glass: rgba(255, 255, 255, 0.8);
-            --text-main: #2d3436;
-            --text-dim: #636e72;
-            --shadow: 0 20px 40px rgba(0,0,0,0.08);
+            --bg: #0f1113;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --accent: #d4af37; /* Noble Gold */
+            --text-white: #ffffff;
+            --text-gray: #a0a0a0;
+            --glass-border: rgba(255, 255, 255, 0.1);
         }
 
-        * { box-sizing: border-box; }
+        * { box-sizing: border-box; scroll-behavior: smooth; }
 
         body {
             margin: 0;
             font-family: 'Inter', sans-serif;
-            background: #f8f9fa;
-            color: var(--text-main);
+            background-color: var(--bg);
+            color: var(--text-white);
             overflow-x: hidden;
-            background: radial-gradient(circle at top right, #fcfcfc, #eef2f3);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
         }
 
-        /* Hero Секция */
+        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 40px 20px;
+            padding: 80px 20px;
             text-align: center;
+            border-bottom: 1px solid var(--glass-border);
         }
 
         .badge {
-            background: var(--glass);
+            background: var(--card-bg);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(197, 160, 89, 0.3);
-            padding: 8px 20px;
+            border: 1px solid var(--accent);
+            padding: 10px 25px;
             border-radius: 50px;
-            font-size: 13px;
-            letter-spacing: 2px;
+            font-size: 12px;
+            letter-spacing: 3px;
             color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             text-transform: uppercase;
         }
 
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(32px, 8vw, 64px);
-            margin: 0;
+            font-size: clamp(36px, 10vw, 72px);
             line-height: 1.1;
-            color: var(--primary);
+            margin: 0;
+            background: linear-gradient(180deg, #fff 0%, #aaa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .subtitle {
-            font-size: clamp(16px, 3vw, 20px);
-            color: var(--text-dim);
-            max-width: 700px;
-            margin: 25px 0 40px;
+            font-size: clamp(16px, 4vw, 20px);
+            color: var(--text-gray);
+            max-width: 800px;
+            margin: 30px 0 50px;
         }
 
-        /* Кнопки и соцсети */
-        .cta-group {
+        /* Stats Block */
+        .stats {
             display: flex;
-            gap: 15px;
+            gap: 40px;
+            margin-bottom: 50px;
             flex-wrap: wrap;
             justify-content: center;
         }
 
+        .stat-item { text-align: center; }
+        .stat-num { display: block; font-size: 32px; font-weight: 800; color: var(--accent); }
+        .stat-desc { font-size: 12px; text-transform: uppercase; color: var(--text-gray); letter-spacing: 1px; }
+
+        /* Buttons */
+        .cta-group { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+
         .btn-main {
-            background: var(--primary);
-            color: white;
-            padding: 18px 35px;
-            border-radius: 12px;
+            background: var(--accent);
+            color: #000;
+            padding: 20px 45px;
+            border-radius: 4px;
             text-decoration: none;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
         }
 
-        .btn-main:hover { transform: scale(1.05); background: #000; }
+        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3); }
 
-        .btn-social {
-            width: 58px;
-            height: 58px;
+        .btn-icon {
+            width: 65px;
+            height: 65px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: white;
-            border: 1px solid #eee;
-            border-radius: 12px;
-            color: var(--primary);
-            text-decoration: none;
-            font-size: 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 4px;
+            color: #fff;
+            font-size: 22px;
             transition: 0.3s;
         }
 
-        .btn-social:hover { border-color: var(--accent); color: var(--accent); background: #fff; }
+        .btn-icon:hover { border-color: var(--accent); color: var(--accent); }
 
-        /* Блок Почему мы */
-        .section-title {
-            text-align: center;
-            padding: 60px 20px 20px;
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
+        /* Steps Section */
+        .section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
+        .section-h2 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 42px; 
+            text-align: center; 
+            margin-bottom: 60px;
+            color: var(--accent);
         }
 
-        .features {
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            max-width: 1200px;
-            margin: 0 auto 100px;
-            padding: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
         }
 
         .card {
-            background: white;
-            padding: 40px;
-            border-radius: 24px;
-            box-shadow: var(--shadow);
-            transition: 0.3s;
-            border: 1px solid rgba(0,0,0,0.02);
+            background: var(--card-bg);
+            padding: 50px 40px;
+            border-radius: 4px;
+            border: 1px solid var(--glass-border);
             position: relative;
-            overflow: hidden;
+            transition: 0.4s;
         }
 
-        .card:hover { transform: translateY(-10px); }
+        .card:hover { background: rgba(255,255,255,0.08); border-color: var(--accent); }
 
-        .card i {
-            font-size: 35px;
-            color: var(--accent);
-            margin-bottom: 20px;
-            display: block;
+        .card-num {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 60px;
+            font-weight: 900;
+            opacity: 0.05;
+            color: #fff;
         }
 
-        .card h3 { font-size: 22px; margin-bottom: 15px; }
+        .card i { font-size: 40px; color: var(--accent); margin-bottom: 25px; display: block; }
+        .card h3 { font-size: 24px; margin-bottom: 15px; font-family: 'Playfair Display', serif; }
+        .card p { color: var(--text-gray); line-height: 1.8; margin: 0; }
 
-        .card p { color: var(--text-dim); line-height: 1.7; margin: 0; }
-
-        /* Адаптив под мобилки */
+        /* Mobile Optimization */
         @media (max-width: 768px) {
-            .hero { padding-top: 80px; }
-            .cta-group { width: 100%; flex-direction: column; align-items: center; }
-            .btn-main { width: 100%; justify-content: center; }
-            .features { grid-template-columns: 1fr; }
-            .card { padding: 30px; }
+            h1 { font-size: 40px; }
+            .section-h2 { font-size: 32px; }
+            .btn-main { width: 100%; text-align: center; }
+            .cta-group { width: 100%; }
         }
 
         footer {
-            background: #1a1c1e;
-            color: #888;
-            padding: 60px 20px;
+            padding: 80px 20px;
+            background: #000;
             text-align: center;
-            font-size: 14px;
+            border-top: 1px solid var(--glass-border);
         }
 
-        .law-info { color: #555; max-width: 800px; margin: 20px auto; font-style: italic; }
+        .footer-line { height: 1px; background: var(--accent); width: 50px; margin: 30px auto; }
     </style>
 </head>
 <body>
 
     <section class="hero">
-        <div class="badge"><i class="fa-solid fa-location-dot"></i> Ставрополь и Край</div>
-        <h1>Списание долгов.<br>Законно. Профессионально.</h1>
+        <div class="badge">Арбитраж • Ставрополь • Край</div>
+        <h1>Защита Ваших Активов <br>и Полное Списание Долгов</h1>
         <p class="subtitle">
-            Арбитражный управляющий с подтвержденным опытом. Мы берем на себя все сложности процедуры банкротства, защищая ваши активы и спокойствие.
+            Индивидуальные стратегии банкротства от профессионального арбитражного управляющего. Решаем сложнейшие юридические задачи в правовом поле.
         </p>
 
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-num">100%</span>
+                <span class="stat-desc">Завершенных дел</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num">26</span>
+                <span class="stat-desc">Регион работы</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num">8+</span>
+                <span class="stat-desc">Лет практики</span>
+            </div>
+        </div>
+
         <div class="cta-group">
-            <a href="mailto:contact@mail.ru" class="btn-main">
-                <i class="fa-solid fa-envelope"></i> Бесплатная консультация
-            </a>
-            <a href="#" class="btn-social" title="Telegram">
-                <i class="fa-brands fa-telegram"></i>
-            </a>
-            <a href="#" class="btn-social" title="WhatsApp">
-                <i class="fa-brands fa-whatsapp"></i>
-            </a>
+            <a href="mailto:contact@mail.ru" class="btn-main">Запросить аудит дела</a>
+            <a href="#" class="btn-icon"><i class="fa-brands fa-telegram"></i></a>
+            <a href="#" class="btn-icon"><i class="fa-brands fa-whatsapp"></i></a>
         </div>
     </section>
 
-    <h2 class="section-title">Почему выбирают нас</h2>
-    
-    <div class="features">
-        <div class="card">
-            <i class="fa-solid fa-scale-balanced"></i>
-            <h3>Полная легальность</h3>
-            <p>Работаем строго в рамках ФЗ-127 «О несостоятельности». Официальный статус арбитражного управляющего гарантирует чистоту сделки.</p>
-        </div>
-
-        <div class="card">
-            <i class="fa-solid fa-shield-halved"></i>
-            <h3>Защита имущества</h3>
-            <p>Грамотно анализируем риски и помогаем сохранить единственное жилье и критически важные активы в ходе процедуры.</p>
-        </div>
-
-        <div class="card">
-            <i class="fa-solid fa-file-invoice-dollar"></i>
-            <h3>Фиксированная цена</h3>
-            <p>Никаких скрытых платежей. Прозрачная смета с учетом депозита суда, публикаций и вознаграждения управляющего.</p>
+    <div class="section">
+        <h2 class="section-h2">Этапы реализации</h2>
+        <div class="grid">
+            <div class="card">
+                <span class="card-num">01</span>
+                <i class="fa-solid fa-magnifying-glass-chart"></i>
+                <h3>Анализ рисков</h3>
+                <p>Проводим глубокий аудит вашей финансовой ситуации и имущества перед подачей заявления.</p>
+            </div>
+            <div class="card">
+                <span class="card-num">02</span>
+                <i class="fa-solid fa-gavel"></i>
+                <h3>Судебный процесс</h3>
+                <p>Представление интересов в Арбитражном суде Ставропольского края на всех стадиях дела.</p>
+            </div>
+            <div class="card">
+                <span class="card-num">03</span>
+                <i class="fa-solid fa-certificate"></i>
+                <h3>Результат</h3>
+                <p>Получение судебного акта о полном освобождении от исполнения требований кредиторов.</p>
+            </div>
         </div>
     </div>
 
     <footer>
-        <div style="color: var(--accent); font-weight: 600; margin-bottom: 10px;">Арбитражный Управляющий в Ставрополе</div>
-        <div class="law-info">
-            Деятельность осуществляется в соответствии с требованиями Федерального закона от 26.10.2002 № 127-ФЗ «О несостоятельности (банкротстве)».
-        </div>
-        <div style="margin-top: 30px;">© 2026. Все права защищены. Сайт носит информационный характер.</div>
+        <div style="letter-spacing: 2px; color: #fff; font-weight: 600;">ВАШ АРБИТРАЖНЫЙ УПРАВЛЯЮЩИЙ</div>
+        <div class="footer-line"></div>
+        <p style="color: var(--text-gray); max-width: 600px; margin: 0 auto; font-size: 13px; line-height: 1.6;">
+            Специализированная помощь в рамках ФЗ-127 «О несостоятельности». <br>
+            Ставрополь, ул. Дзержинского (офис в центре).
+        </p>
+        <div style="margin-top: 40px; font-size: 11px; color: #444;">© 2026 OFFICIAL SITE. СТАВРОПОЛЬ.</div>
     </footer>
 
 </body>
