@@ -5,70 +5,134 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Арбитражный управляющий | Ставрополь</title>
     <style>
+        :root {
+            --primary: #1a1a1a;
+            --accent: #c5a059; /* Золотисто-бронзовый акцент */
+            --bg: #ffffff;
+            --text-secondary: #666;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f6;
-            color: #333;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg);
+            color: var(--primary);
             margin: 0;
+            line-height: 1.6;
             display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            padding: 20px;
+            text-align: center;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .city-tag {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 14px;
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        h1 {
+            font-size: clamp(28px, 5vw, 48px);
+            margin: 0 0 20px 0;
+            font-weight: 700;
+            max-width: 800px;
+            text-transform: uppercase;
+        }
+
+        .description {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        .contacts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .btn {
+            padding: 18px 30px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: #fafafa;
+        }
+
+        .btn.soon::after {
+            content: 'в разработке';
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            font-size: 9px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+
+        footer {
+            padding: 40px 20px;
+            font-size: 13px;
+            color: #999;
+            border-top: 1px solid #f0f0f0;
             text-align: center;
         }
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            max-width: 500px;
-            width: 90%;
+
+        /* Адаптивность для мобильных */
+        @media (max-width: 600px) {
+            .contacts-grid { grid-template-columns: 1fr; }
         }
-        h1 { color: #2c3e50; margin-bottom: 10px; font-size: 24px; }
-        p { color: #7f8c8d; line-height: 1.6; }
-        .location { font-weight: bold; color: #3498db; margin-bottom: 20px; }
-        .status {
-            display: inline-block;
-            background: #e1f5fe;
-            color: #01579b;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 14px;
-            margin-bottom: 30px;
-        }
-        .links a {
-            display: block;
-            text-decoration: none;
-            background: #2c3e50;
-            color: white;
-            padding: 12px;
-            margin: 10px 0;
-            border-radius: 8px;
-            transition: 0.3s;
-        }
-        .links a.soon { background: #bdc3c7; cursor: not-allowed; }
-        .links a:hover:not(.soon) { background: #34495e; transform: translateY(-2px); }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="status">Сайт в разработке</div>
-    <h1>Арбитражный управляющий</h1>
-    <p class="location">г. Ставрополь</p>
-    
-    <p>Профессиональное сопровождение процедур банкротства физических и юридических лиц в Ставропольском крае.</p>
+    <div class="content">
+        <div class="city-tag">Ставрополь</div>
+        <h1>Арбитражный управляющий</h1>
+        <p class="description">
+            Профессиональное сопровождение процедур банкротства физических и юридических лиц. Надежная защита интересов в Арбитражном суде Ставропольского края.
+        </p>
 
-    <div class="links">
-        <a href="#" class="soon">Telegram (скоро)</a>
-        <a href="#" class="soon">WhatsApp (скоро)</a>
-        <a href="mailto:your-email@mail.ru">Написать на почту</a>
+        <div class="contacts-grid">
+            <a href="#" class="btn soon">Telegram-канал</a>
+            <a href="#" class="btn soon">WhatsApp связь</a>
+            <a href="mailto:contact@yourdomain.com" class="btn">Электронная почта</a>
+        </div>
     </div>
-    
-    <p style="font-size: 12px; margin-top: 30px; color: #bdc3c7;">
-        © 2026 Арбитражный управляющий. Ставрополь.
-    </p>
-</div>
+
+    <footer>
+        <div>Федеральный закон №127-ФЗ «О несостоятельности (банкротстве)»</div>
+        <div style="margin-top: 10px;">© 2026. Арбитражный управляющий. Все права защищены.</div>
+    </footer>
 
 </body>
 </html>
